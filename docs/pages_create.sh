@@ -3,6 +3,7 @@ set -xeuo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 mkdir -vp pages
 cp ./theme.css pages
+cp -r ./fonts pages
 repourl="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-AstroNvim/astrocommunity}/tree/main"
 
 {
@@ -58,5 +59,3 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
 
 echo "SUCCESS - generated ../pages/index.html"
 mv pages ..
-echo "moved pages to"
-ls ..
