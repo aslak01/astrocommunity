@@ -3,7 +3,6 @@ set -xeuo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 mkdir -vp pages
 cp ./theme.css pages
-cp ./skylighting-solarized-theme.css pages
 repourl="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-AstroNvim/astrocommunity}/tree/main"
 
 {
@@ -55,7 +54,6 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
   --to html5+smart \
   --template=./template \
   --css=theme.css \
-  --css=skylighting-solarized-theme.css \
   pages/index.md >pages/index.html
 
 echo "SUCCESS - generated ../pages/index.html"
